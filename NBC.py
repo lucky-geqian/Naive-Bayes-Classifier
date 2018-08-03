@@ -10,13 +10,14 @@ from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 import pylab as pl
 import matplotlib.pyplot as plt
+import pickle
 
 
 def MakeWordsSet(words_file):
     words_set = set()
-    with open(words_file, 'r') as fp:
+    with open(words_file, 'r', encoding='UTF-8') as fp:
         for line in fp.readlines():
-            word = line.strip().decode("utf-8")
+            word = line.strip()
             if len(word)>0 and word not in words_set: # 去重
                 words_set.add(word)
     return words_set
@@ -35,24 +36,25 @@ def TextProcessing(folder_path, test_size=0.2):
         for file in files:
             if j > 100: # 每类text样本数最多100
                 break
-            with open(os.path.join(new_folder_path, file), 'r') as fp:
-               raw = fp.read()
-            # print raw
-            ## --------------------------------------------------------------------------------
-            ## jieba分词
-            # jieba.enable_parallel(4) # 开启并行分词模式，参数为并行进程数，不支持windows
-            word_cut = jieba.cut(raw, cut_all=False) # 精确模式，返回的结构是一个可迭代的genertor
-            word_list = list(word_cut) # genertor转化为list，每个词unicode格式
-            # jieba.disable_parallel() # 关闭并行分词模式
-            # print word_list
-            ## --------------------------------------------------------------------------------
-            data_list.append(word_list)
-            class_list.append(folder.decode('utf-8'))
-            j += 1
-
+            with open(os.path.join(new_folder_path, file), 'r', encoding='UTF-8') as fp:
+                for raw in fp.readlines():
+                    raw = raw.strip()
+                    # print (raw)
+                    # --------------------------------------------------------------------------------
+                    # jieba分词
+                    # jieba.enable_parallel(4) # 开启并行分词模式，参数为并行进程数，不支持windows
+                    word_cut = jieba.cut(raw, cut_all=False) # 精确模式，返回的结构是一个可迭代的genertor
+                    word_list = list(word_cut) # genertor转化为list，每个词unicode格式
+                    # jieba.disable_parallel() # 关闭并行分词模式
+                    # print(word_list)
+                    ## --------------------------------------------------------------------------------
+                    data_list.append(word_list)
+                    class_list.append(folder)
+                    j += 1
+        print(j)
     ## 划分训练集和测试集
     # train_data_list, test_data_list, train_class_list, test_class_list = sklearn.cross_validation.train_test_split(data_list, class_list, test_size=test_size)
-    data_class_list = zip(data_list, class_list)
+    data_class_list = list(zip(data_list, class_list))
     random.shuffle(data_class_list)
     index = int(len(data_class_list)*test_size)+1
     train_list = data_class_list[index:]
@@ -64,13 +66,13 @@ def TextProcessing(folder_path, test_size=0.2):
     all_words_dict = {}
     for word_list in train_data_list:
         for word in word_list:
-            if all_words_dict.has_key(word):
+            if all_words_dict.__contains__(word):
                 all_words_dict[word] += 1
             else:
                 all_words_dict[word] = 1
     # key函数利用词频进行降序排序
     all_words_tuple_list = sorted(all_words_dict.items(), key=lambda f:f[1], reverse=True) # 内建函数sorted参数需为list
-    all_words_list = list(zip(*all_words_tuple_list)[0])
+    all_words_list = list(zip(*all_words_tuple_list))[0]
 
     return all_words_list, train_data_list, test_data_list, train_class_list, test_class_list
 
@@ -79,10 +81,11 @@ def words_dict(all_words_list, deleteN, stopwords_set=set()):
     # 选取特征词
     feature_words = []
     n = 1
+    # print("deleteN:"+str(deleteN)+"len(all_words_list):"+str(len(all_words_list)))
     for t in range(deleteN, len(all_words_list), 1):
         if n > 1000: # feature_words的维度1000
             break
-        # print all_words_list[t]
+        # print (all_words_list[t])
         if not all_words_list[t].isdigit() and all_words_list[t] not in stopwords_set and 1<len(all_words_list[t])<5:
             feature_words.append(all_words_list[t])
             n += 1
@@ -123,26 +126,35 @@ def TextClassifier(train_feature_list, test_feature_list, train_class_list, test
     elif flag == 'sklearn':
         ## sklearn分类器
         classifier = MultinomialNB().fit(train_feature_list, train_class_list)
-        # print classifier.predict(test_feature_list)
+        #保存model
+        # with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle",'wb') as f:
+        #     pickle.dump(classifier, f)
+        # print(classifier.predict(test_feature_list))
         # for test_feature in test_feature_list:
-        #     print classifier.predict(test_feature)[0],
-        # print ''
+        #     print(classifier.predict(test_feature)[0])
+        # print('')
         test_accuracy = classifier.score(test_feature_list, test_class_list)
     else:
         test_accuracy = []
     return test_accuracy
 
+def prdict(data_list, feature_list):
+    #加载模型(sklearn)
+    with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle",'rb') as f:
+        classifier = pickle.load(f)
+    classifier.predict(feature_list)
+
 
 if __name__ == '__main__':
 
-    print "start"
+    print("start")
 
     ## 文本预处理
-    folder_path = './Database/SogouC/Sample'
+    folder_path = 'F:/github/Naive-Bayes-Classifier/Database/SogouC/Shywl'
     all_words_list, train_data_list, test_data_list, train_class_list, test_class_list = TextProcessing(folder_path, test_size=0.2)
 
     # 生成stopwords_set
-    stopwords_file = './stopwords_cn.txt'
+    stopwords_file = 'F:/github/Naive-Bayes-Classifier/stopwords_cn.txt'
     stopwords_set = MakeWordsSet(stopwords_file)
 
     ## 文本特征提取和分类
@@ -156,7 +168,7 @@ if __name__ == '__main__':
         train_feature_list, test_feature_list = TextFeatures(train_data_list, test_data_list, feature_words, flag)
         test_accuracy = TextClassifier(train_feature_list, test_feature_list, train_class_list, test_class_list, flag)
         test_accuracy_list.append(test_accuracy)
-    print test_accuracy_list
+    print(test_accuracy_list)
 
     # 结果评价
     plt.figure()
@@ -166,4 +178,4 @@ if __name__ == '__main__':
     plt.ylabel('test_accuracy')
     plt.savefig('result.png')
 
-    print "finished"
+    print("finished")
