@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d6659a-b6e3-4bfd-896b-d18cbf440f0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/scikit-learn nb classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NBC.py" beforeDir="false" afterPath="$PROJECT_DIR$/NBC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.png" beforeDir="false" afterPath="$PROJECT_DIR$/result.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/sample_data.tar.gz" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,8 +28,8 @@
       <file leaf-file-name="scikit-learn nb classifier.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scikit-learn nb classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="308">
+              <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
               <folding>
                 <element signature="e#33#43#0" expanded="true" />
               </folding>
@@ -121,6 +117,11 @@
               <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
               <item name="Database" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Naive-Bayes-Classifier" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -207,7 +208,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1922" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -400,8 +400,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scikit-learn nb classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="308">
+          <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="43" />
           <folding>
             <element signature="e#33#43#0" expanded="true" />
           </folding>
