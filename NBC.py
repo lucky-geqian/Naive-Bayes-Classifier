@@ -89,6 +89,12 @@ def words_dict(all_words_list, deleteN, stopwords_set=set()):
         if not all_words_list[t].isdigit() and all_words_list[t] not in stopwords_set and 1<len(all_words_list[t])<5:
             feature_words.append(all_words_list[t])
             n += 1
+    #保存feature_words
+    # with open('F:/github/Naive-Bayes-Classifier/Database/SogouC/feature_words.txt','w') as r:
+    #     for word in feature_words:
+    #         r.write(word)
+    #         r.write('\n')
+    #     r.close()
     return feature_words
 
 
@@ -130,9 +136,10 @@ def TextClassifier(train_feature_list, test_feature_list, train_class_list, test
         # with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle",'wb') as f:
         #     pickle.dump(classifier, f)
         # print(classifier.predict(test_feature_list))
-        # for test_feature in test_feature_list:
-        #     print(classifier.predict(test_feature)[0])
-        # print('')
+        for test_feature in test_feature_list:
+            # print(test_feature)
+            print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
+        print('')
         test_accuracy = classifier.score(test_feature_list, test_class_list)
     else:
         test_accuracy = []

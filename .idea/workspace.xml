@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56d6659a-b6e3-4bfd-896b-d18cbf440f0e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Database/SogouC/model/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/predict_result.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scikit-learn nb classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/NBC.py" beforeDir="false" afterPath="$PROJECT_DIR$/NBC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predict_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict_result.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.png" beforeDir="false" afterPath="$PROJECT_DIR$/result.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +20,8 @@
       <file leaf-file-name="NBC.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NBC.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="22">
+              <caret line="102" column="18" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="18" />
               <folding>
                 <element signature="e#16#25#0" expanded="true" />
               </folding>
@@ -27,11 +29,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="predict_result.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scikit-learn nb classifier.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scikit-learn nb classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#33#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="text.py" pinned="false" current-in-tab="false">
+        <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/feature_extraction/text.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-828">
+              <caret line="452" column="8" selection-start-line="452" selection-start-column="8" selection-end-line="452" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="predict_result.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/predict_result.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="89" column="41" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="41" />
+            <state relative-caret-position="1826">
+              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
               <folding>
                 <element signature="e#23#32#0" expanded="true" />
               </folding>
@@ -39,19 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random.py" pinned="false" current-in-tab="false">
-        <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/random.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="283" column="44" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="builtins.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/908630401/builtins.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
+            <state relative-caret-position="110308">
               <caret line="5014" selection-start-line="5014" selection-end-line="5014" />
             </state>
           </provider>
@@ -59,9 +73,7 @@
       </file>
       <file leaf-file-name="stopwords_cn.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stopwords_cn.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-8798" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -82,6 +94,8 @@
         <option value="$PROJECT_DIR$/Database/predict_result.py" />
         <option value="$PROJECT_DIR$/NBC.py" />
         <option value="$PROJECT_DIR$/predict_result.py" />
+        <option value="$PROJECT_DIR$/Database/scikit-learn nb classifier.py" />
+        <option value="$PROJECT_DIR$/scikit-learn nb classifier.py" />
       </list>
     </option>
   </component>
@@ -95,7 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -108,43 +121,15 @@
               <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
               <item name="Database" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Naive-Bayes-Classifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="Database" type="462c0819:PsiDirectoryNode" />
-              <item name="SogouC" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Naive-Bayes-Classifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="Database" type="462c0819:PsiDirectoryNode" />
-              <item name="SogouC" type="462c0819:PsiDirectoryNode" />
-              <item name="Shywl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Naive-Bayes-Classifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="Database" type="462c0819:PsiDirectoryNode" />
-              <item name="SogouC" type="462c0819:PsiDirectoryNode" />
-              <item name="Shywl" type="462c0819:PsiDirectoryNode" />
-              <item name="C000001" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Naive-Bayes-Classifier" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Naive-Bayes-Classifier" type="462c0819:PsiDirectoryNode" />
-              <item name="Database" type="462c0819:PsiDirectoryNode" />
-              <item name="SogouC" type="462c0819:PsiDirectoryNode" />
-              <item name="Shywl" type="462c0819:PsiDirectoryNode" />
-              <item name="C000002" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tensor2tensor" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../query2sql" />
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RunDashboard">
@@ -159,7 +144,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.predict_result">
     <configuration name="NBC" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Naive-Bayes-Classifier" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -178,8 +163,31 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="predict_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Naive-Bayes-Classifier" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/predict_result.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.NBC" />
+      <item itemvalue="Python.predict_result" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.predict_result" />
         <item itemvalue="Python.NBC" />
       </list>
     </recent_temporary>
@@ -199,13 +207,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1922" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32929516" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32929516" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41189426" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.25330397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -224,19 +233,73 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/predict_result.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NBC.py</url>
+          <line>138</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NBC.py</url>
+          <line>174</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/predict_result.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/NBC.py</url>
+          <line>97</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="12" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/NBC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2244">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="18" />
+          <folding>
+            <element signature="e#16#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2068">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/908630401/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110308">
+          <caret line="5014" selection-start-line="5014" selection-end-line="5014" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stopwords_cn.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="37" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="37" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stopwords_cn.txt">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/NBC.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -256,19 +319,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stopwords_cn.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8798" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Database/SogouC/Sample/C000008/10.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Database/SogouC/ClassList.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/908630401/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
+        <state relative-caret-position="110308">
           <caret line="5014" selection-start-line="5014" selection-end-line="5014" />
         </state>
       </provider>
@@ -278,9 +333,6 @@
         <state relative-caret-position="-2376" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/result.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2018.1/system/python_stubs/908630401/_sqlite3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-44">
@@ -288,46 +340,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Database/predict_result.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="283" column="44" selection-start-line="283" selection-start-column="43" selection-end-line="283" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/naive_bayes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
+        <state relative-caret-position="398">
           <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="440" selection-start-line="440" selection-end-line="440" />
+        <state relative-caret-position="227">
+          <caret line="432" selection-start-line="432" selection-end-line="432" />
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="735" selection-start-line="735" selection-end-line="735" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1826">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database/scikit-learn nb classifier.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/NBC.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="22">
+          <caret line="102" column="18" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="18" />
           <folding>
             <element signature="e#16#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/predict_result.py">
+    <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/feature_extraction/text.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="89" column="41" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="41" />
+        <state relative-caret-position="-828">
+          <caret line="452" column="8" selection-start-line="452" selection-start-column="8" selection-end-line="452" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="492" column="8" selection-start-line="492" selection-start-column="8" selection-end-line="492" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scikit-learn nb classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           <folding>
-            <element signature="e#23#32#0" expanded="true" />
+            <element signature="e#33#43#0" expanded="true" />
           </folding>
         </state>
       </provider>

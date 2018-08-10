@@ -39,8 +39,8 @@ def TextProcessing(folder_path):
                     ## --------------------------------------------------------------------------------
                     data_list.append(word_list)
                     j += 1
-        print(j)
-    random.shuffle(data_list)
+        # print(j)
+    # random.shuffle(data_list)
     # 统计词频放入all_words_dict
     all_words_dict = {}
     for word_list in data_list:
@@ -55,7 +55,7 @@ def TextProcessing(folder_path):
 
     return all_words_list, data_list
 
-def TextFeatures(data_list, feature_words, flag='nltk'):
+def TextFeatures(data_list, feature_words, flag='sklearn'):
     def text_features(text, feature_words):
         text_words = set(text)
         ## -----------------------------------------------------------------------------------
@@ -70,11 +70,11 @@ def TextFeatures(data_list, feature_words, flag='nltk'):
         ## -----------------------------------------------------------------------------------
         return features
     feature_list = [text_features(text, feature_words) for text in data_list]
-    return data_list
+    return feature_list
 
 if __name__ == '__main__':
     #文本处理
-    folder_path = "F:/github/Naive-Bayes-Classifier/Database/SogouC/Shywl"
+    folder_path = "F:/github/Naive-Bayes-Classifier/Database/SogouC/example"
     all_words_list, data_list = TextProcessing(folder_path)
 
     # 生成stopwords_set
@@ -82,11 +82,21 @@ if __name__ == '__main__':
     stopwords_set = MakeWordsSet(stopwords_file)
 
     ## 文本特征提取和分类
-    feature_words = words_dict(all_words_list, 0, stopwords_set)
+    # feature_words = words_dict(all_words_list, 0, stopwords_set)
+    feature_words = []
+    with open('F:/github/Naive-Bayes-Classifier/Database/SogouC/feature_words.txt', 'r') as fb:
+        for raw in fb.readlines():
+            raw = raw.strip('\n')
+            feature_words.append(raw)
 
     # 加载模型(sklearn)
     with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle", 'rb') as f:
         classifier = pickle.load(f)
     feature_list = TextFeatures(data_list, feature_words)
-    classifier.predict(feature_list)
+    # print(classifier.predict(feature_list))
+    for test_feature in feature_list:
+        # print(test_feature)
+        for i in data_list:
+            print(i)
+            print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
 
