@@ -13,33 +13,43 @@ import pickle
 from NBC import MakeWordsSet, words_dict
 
 def TextProcessing(folder_path):
-    folder_list = os.listdir(folder_path)
+    # folder_list = os.listdir(folder_path)
     data_list = []
+    class_list = []
 
     # 类间循环
-    for folder in folder_list:
-        new_folder_path = os.path.join(folder_path, folder)
-        files = os.listdir(new_folder_path)
-        # 类内循环
-        j = 1
-        for file in files:
-            if j > 100:  # 每类text样本数最多100
-                break
-            with open(os.path.join(new_folder_path, file), 'r', encoding='UTF-8') as fp:
-                for raw in fp.readlines():
-                    raw = raw.strip()
-                    # print (raw)
-                    # --------------------------------------------------------------------------------
-                    # jieba分词
-                    # jieba.enable_parallel(4) # 开启并行分词模式，参数为并行进程数，不支持windows
-                    word_cut = jieba.cut(raw, cut_all=False)  # 精确模式，返回的结构是一个可迭代的genertor
-                    word_list = list(word_cut)  # genertor转化为list，每个词unicode格式
-                    # jieba.disable_parallel() # 关闭并行分词模式
-                    # print(word_list)
-                    ## --------------------------------------------------------------------------------
-                    data_list.append(word_list)
-                    j += 1
-        # print(j)
+    with open(folder_path, 'r') as f1:
+        for line in f1:
+            tks = line.split('\t', 1)
+            class_list.append(tks[0])
+            raw = tks[1].strip()
+            word_cut = jieba.cut(raw, cut_all=False)  # 精确模式，返回的结构是一个可迭代的genertor
+            word_list = list(word_cut)  # genertor转化为list，每个词unicode格式
+            data_list.append(word_list)
+
+    # for folder in folder_list:
+    #     new_folder_path = os.path.join(folder_path, folder)
+    #     files = os.listdir(new_folder_path)
+    #     # 类内循环
+    #     j = 1
+    #     for file in files:
+    #         if j > 100:  # 每类text样本数最多100
+    #             break
+    #         with open(os.path.join(new_folder_path, file), 'r', encoding='UTF-8') as fp:
+    #             for raw in fp.readlines():
+    #                 raw = raw.strip()
+    #                 # print (raw)
+    #                 # --------------------------------------------------------------------------------
+    #                 # jieba分词
+    #                 # jieba.enable_parallel(4) # 开启并行分词模式，参数为并行进程数，不支持windows
+    #                 word_cut = jieba.cut(raw, cut_all=False)  # 精确模式，返回的结构是一个可迭代的genertor
+    #                 word_list = list(word_cut)  # genertor转化为list，每个词unicode格式
+    #                 # jieba.disable_parallel() # 关闭并行分词模式
+    #                 # print(word_list)
+    #                 ## --------------------------------------------------------------------------------
+    #                 data_list.append(word_list)
+    #                 j += 1
+    #     # print(j)
     # random.shuffle(data_list)
     # 统计词频放入all_words_dict
     all_words_dict = {}
@@ -53,7 +63,7 @@ def TextProcessing(folder_path):
     all_words_tuple_list = sorted(all_words_dict.items(), key=lambda f: f[1], reverse=True)  # 内建函数sorted参数需为list
     all_words_list = list(zip(*all_words_tuple_list))[0]
 
-    return all_words_list, data_list
+    return all_words_list, data_list, class_list
 
 def TextFeatures(data_list, feature_words, flag='sklearn'):
     def text_features(text, feature_words):
@@ -74,8 +84,8 @@ def TextFeatures(data_list, feature_words, flag='sklearn'):
 
 if __name__ == '__main__':
     #文本处理
-    folder_path = "F:/github/Naive-Bayes-Classifier/Database/SogouC/example"
-    all_words_list, data_list = TextProcessing(folder_path)
+    folder_path = "F:/github/Naive-Bayes-Classifier/scripts/test_data.txt"
+    all_words_list, data_list, class_list = TextProcessing(folder_path)
 
     # 生成stopwords_set
     stopwords_file = 'F:/github/Naive-Bayes-Classifier/stopwords_cn.txt'
@@ -94,9 +104,11 @@ if __name__ == '__main__':
         classifier = pickle.load(f)
     feature_list = TextFeatures(data_list, feature_words)
     # print(classifier.predict(feature_list))
-    for test_feature in feature_list:
-        # print(test_feature)
-        for i in data_list:
-            print(i)
-            print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
+    test_accuracy = classifier.score(feature_list, class_list)
+    print(test_accuracy)
+    # for test_feature in feature_list:
+    #     # print(test_feature)
+    #     for i in data_list:
+    #         print(i)
+    #         print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
 

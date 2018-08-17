@@ -90,11 +90,11 @@ def words_dict(all_words_list, deleteN, stopwords_set=set()):
             feature_words.append(all_words_list[t])
             n += 1
     #保存feature_words
-    # with open('F:/github/Naive-Bayes-Classifier/Database/SogouC/feature_words.txt','w') as r:
-    #     for word in feature_words:
-    #         r.write(word)
-    #         r.write('\n')
-    #     r.close()
+    with open('F:/github/Naive-Bayes-Classifier/Database/SogouC/feature_words.txt','w') as r:
+        for word in feature_words:
+            r.write(word)
+            r.write('\n')
+        r.close()
     return feature_words
 
 
@@ -133,13 +133,13 @@ def TextClassifier(train_feature_list, test_feature_list, train_class_list, test
         ## sklearn分类器
         classifier = MultinomialNB().fit(train_feature_list, train_class_list)
         #保存model
-        # with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle",'wb') as f:
-        #     pickle.dump(classifier, f)
+        with open("F:/github/Naive-Bayes-Classifier/Database/SogouC/model/nbc_classifier.pickle",'wb') as f:
+            pickle.dump(classifier, f)
         # print(classifier.predict(test_feature_list))
-        for test_feature in test_feature_list:
-            # print(test_feature)
-            print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
-        print('')
+        # for test_feature in test_feature_list:
+        #     # print(test_feature)
+        #     print(classifier.predict(np.asarray(test_feature).reshape(1, -1)))
+        # print('')
         test_accuracy = classifier.score(test_feature_list, test_class_list)
     else:
         test_accuracy = []
@@ -167,22 +167,19 @@ if __name__ == '__main__':
     ## 文本特征提取和分类
     # flag = 'nltk'
     flag = 'sklearn'
-    deleteNs = range(0, 1000, 20)
-    test_accuracy_list = []
-    for deleteN in deleteNs:
-        # feature_words = words_dict(all_words_list, deleteN)
-        feature_words = words_dict(all_words_list, deleteN, stopwords_set)
-        train_feature_list, test_feature_list = TextFeatures(train_data_list, test_data_list, feature_words, flag)
-        test_accuracy = TextClassifier(train_feature_list, test_feature_list, train_class_list, test_class_list, flag)
-        test_accuracy_list.append(test_accuracy)
-    print(test_accuracy_list)
+
+    # feature_words = words_dict(all_words_list, deleteN)
+    feature_words = words_dict(all_words_list, 0, stopwords_set)
+    train_feature_list, test_feature_list = TextFeatures(train_data_list, test_data_list, feature_words, flag)
+    test_accuracy = TextClassifier(train_feature_list, test_feature_list, train_class_list, test_class_list, flag)
+    print(test_accuracy)
 
     # 结果评价
-    plt.figure()
-    plt.plot(deleteNs, test_accuracy_list)
-    plt.title('Relationship of deleteNs and test_accuracy')
-    plt.xlabel('deleteNs')
-    plt.ylabel('test_accuracy')
-    plt.savefig('result.png')
+    # plt.figure()
+    # plt.plot(deleteNs, test_accuracy_list)
+    # plt.title('Relationship of deleteNs and test_accuracy')
+    # plt.xlabel('deleteNs')
+    # plt.ylabel('test_accuracy')
+    # plt.savefig('result.png')
 
     print("finished")
